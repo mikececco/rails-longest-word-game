@@ -1,0 +1,15 @@
+<div class="container text-center m-5">
+  <div class="row align-items-start">
+    <%@letters.each do |letter|%>
+      <div class="col">
+        <p class="btn btn-primary"><%=letter%></p>
+      </div>
+    <%end%>
+  </div>
+  <form action="/score" method="post" data-turbo="false">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <label for="word">Longest word I found is</label>
+    <input type="text" id="word" placeholder="word..." name="word">
+    <input type="submit" value="submit">
+  </form>
+</div>
