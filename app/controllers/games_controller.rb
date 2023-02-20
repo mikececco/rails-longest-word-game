@@ -7,9 +7,8 @@ class GamesController < ApplicationController
   end
 
   def score
-    word = params[:word]
+    word = params["word"]
     url = "https://wagon-dictionary.herokuapp.com/#{word}"
-    user_serialized = URI.open(url).read
-    @result = JSON.parse(user_serialized)['found']
+    @result = JSON.parse(URI.open(url).read)['found']
   end
 end
